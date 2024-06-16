@@ -5,8 +5,9 @@ export const GlobalStyles = createGlobalStyle`
     html,body{
         padding: 0;
         margin: 0;
-        font-family: ${fonts.Roboto}
+        font-family: "Roboto", sans-serif;
         font-size: 15px;
+        background-color: ${colors.background.secondary};
     }
     h1{
         font-family: "Cabin", sans-serif;

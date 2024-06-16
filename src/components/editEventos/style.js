@@ -19,13 +19,21 @@ export const ImgEvents = styled.img`
 `;
 export const TitleEvents = styled.h1`
   font-size: 36px;
+  @media (max-width: 578px) {
+    font-size: 5vw;
+  }
 `;
 export const DescEvents = styled.label`
   font-size: 32px;
+  @media (max-width: 578px) {
+    font-size: 5vw;
+  }
 `;
 export const DivInfo = styled.div``;
 export const Icons = styled.div`
   float: right;
-  margin-top: 60px;
   font-size: 30px;
+  @media (max-width: 578px) {
+    font-size: 5vw;
+  }
 `;

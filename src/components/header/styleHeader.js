@@ -11,6 +11,3 @@ export const HeaderPrincipal = styled.header`
 export const LogoSite = styled.img`
   height: 80%;
 `;
-export const DivButtons = styled.div`
-  
-`

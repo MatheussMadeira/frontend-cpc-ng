@@ -1,7 +1,8 @@
 import {
   Container,
-  TitlePrincipal,
-  DivPrincipal,
+  MainTitle,
+  SecondaryTitle,
+  MainDiv,
   TitleInput,
   Form,
   DivInputs,
@@ -11,21 +12,17 @@ import {
   DivSelect,
   SelectDe,
   OptionsS,
-} from "./style";
-import Header from "../../components/header/header";
-import { InputD } from "../../components/common/styleInput";
-import { ButtonDefault } from "../../components/common/styleButton";
-import EditEventos from "../../components/editEventos/editEventos";
+} from "./Styles";
+import { InputD } from "../../components/Common/Input";
+import { ButtonDefault } from "../../components/Common/Button";
+import EditEventos from "../../components/EditEventos/EditEventos";
 
 function Home() {
   return (
     <Container>
-      <Header></Header>
-      <DivPrincipal>
+      <MainDiv>
         <Form>
-          <TitlePrincipal marginTop="20px">
-            ADICIONAR NOVO EVENTO
-          </TitlePrincipal>
+          <MainTitle>ADICIONAR NOVO EVENTO</MainTitle>
           <DivInputs>
             <TitleInput>
               Título
@@ -62,9 +59,9 @@ function Home() {
             Enviar
           </ButtonDefault>
         </Form>
-        <TitlePrincipal marginTop="50px">GERENCIAR EVENTOS</TitlePrincipal>
+        <SecondaryTitle>GERENCIAR EVENTOS</SecondaryTitle>
         <EditEventos />
-      </DivPrincipal>
+      </MainDiv>
     </Container>
   );
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import { ImgEvents, TitleEvents, DescEvents, DivInfo, Icons } from "./style";
+import { ImgEvents, TitleEvents, DescEvents, DivInfo, Icons } from "./Styles";
 import { FaEdit } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 

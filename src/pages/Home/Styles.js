@@ -7,17 +7,31 @@ import { AiOutlineCopy } from "react-icons/ai";
 export const Container = styled.div`
   color: ${colors.font.primary};
 `;
-export const TitlePrincipal = styled.h1`
+export const SecondaryTitle = styled.h1`
   color: ${colors.font.secondary};
-  margin-top: ${(props) => props.marginTop || "0px"};
+  margin-top: 50px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 2px 0px 0 rgba(255, 213, 153, 1);
-  @media (max-width: 420px) {
-    font-size: 7vw;
+  @media (max-width: 672px) {
+    font-size: 4vw;
+  }
+  @media (max-width: 480px) {
+    font-size: 19.2px;
   }
 `;
-export const HeaderPrincipal = styled.header``;
-export const DivPrincipal = styled.div`
+export const MainTitle = styled.h1`
+  color: ${colors.font.secondary};
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 0px 0 rgba(255, 213, 153, 1);
+  @media (max-width: 672px) {
+    font-size: 4vw;
+  }
+  @media (max-width: 480px) {
+    font-size: 19.2px;
+  }
+`;
+export const MainDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +82,10 @@ export const SelectDe = styled.select`
   height: 30px;
   color: white;
   border-radius: 3px;
+  border: 1px solid white;
 `;
 export const OptionsS = styled.option`
+  border: 1px solid white;
   border-radius: 0px;
   color: white;
   text-decoration: none;

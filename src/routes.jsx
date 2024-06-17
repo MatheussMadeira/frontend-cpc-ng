@@ -4,13 +4,14 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import AppLayout from "./components/AppLayout/AppLayout";
 
-import Home from "./pages/Home/home";
+import Home from "./pages/Home/Home";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/">
+      <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
       </Route>
     </Route>

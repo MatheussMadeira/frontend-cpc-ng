@@ -1,4 +1,3 @@
-import React from "react";
 import { SelectStyled } from "./style";
 const onChange = (value) => {
   console.log(`selected ${value}`);
@@ -10,7 +9,7 @@ const onSearch = (value) => {
 // Filter `option.label` match the user type `input`
 const filterOption = (input, option) =>
   (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
-const SelectD = () => (
+function SelectD() {
   <SelectStyled
     showSearch
     placeholder="Opções de categoria:"
@@ -32,6 +31,6 @@ const SelectD = () => (
         label: "Tom",
       },
     ]}
-  />
-);
+  />;
+}
 export default SelectD;

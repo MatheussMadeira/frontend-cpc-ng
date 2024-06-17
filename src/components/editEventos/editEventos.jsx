@@ -1,6 +1,5 @@
-import React from "react";
-import { Container } from "./style";
-import Evento from "./evento";
+import { Container } from "./Styles";
+import Evento from "./Evento";
 
 // Dados JSON
 const eventos = [

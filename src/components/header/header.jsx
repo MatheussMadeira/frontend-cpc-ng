@@ -1,6 +1,6 @@
 import logo from "../../assets/imgHeader.jpg";
-import { HeaderPrincipal, LogoSite, DivButtons } from "./style";
-import { ButtonDefault } from "../common/styleButton";
+import { HeaderPrincipal, LogoSite, DivButtons } from "./Styles";
+import { ButtonDefault } from "../Common/Button";
 
 function Header() {
   return (

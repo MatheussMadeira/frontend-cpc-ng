@@ -10,7 +10,6 @@ export const HeaderPrincipal = styled.header`
 `;
 export const LogoSite = styled.img`
   height: 80%;
+  padding-left: 20px;
 `;
-export const DivButtons = styled.div`
-  
-`
+export const DivButtons = styled.div``;

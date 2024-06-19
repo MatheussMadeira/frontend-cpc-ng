@@ -7,8 +7,8 @@ function Header() {
     <HeaderPrincipal>
       <LogoSite src={logo} alt="logo"></LogoSite>
       <DivButtons>
-        <ButtonDefault>Home</ButtonDefault>
-        <ButtonDefault marginLeft="20px">Eventos</ButtonDefault>
+        <ButtonDefault mediaMarginValue="20vw">Home</ButtonDefault>
+        <ButtonDefault mediaMarginValue="20vw">Eventos</ButtonDefault>
       </DivButtons>
     </HeaderPrincipal>
   );

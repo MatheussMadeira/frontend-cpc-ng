@@ -1,16 +1,40 @@
+import React, { useState } from "react";
+import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import DeleteModal from "../Modals/DeleteModal/Modal";
+import EditModal from "../Modals/EditModal/Modal";
 import { ImgEvents, TitleEvents, DescEvents, DivInfo, Icons } from "./Styles";
-import { FaEdit } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
 
 function Evento({ evento }) {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showEditModal = () => {
+    setIsEditModalOpen(true);
+  };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <DivInfo>
       <ImgEvents src={evento.url_da_imagem} alt={evento.titulo} />
       <TitleEvents>{evento.titulo}</TitleEvents>
       <DescEvents>{evento.descricao}</DescEvents>
       <Icons>
-        <FaEdit />
-        <FaRegTrashAlt />
+        <EditModal
+          isEditModalOpen={isEditModalOpen}
+          setIsEditModalOpen={setIsEditModalOpen}
+        />
+        <FaEdit style={{ cursor: "pointer" }} onClick={() => showEditModal()} />
+        <DeleteModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+        <FaRegTrashAlt
+          style={{ cursor: "pointer" }}
+          onClick={() => showModal()}
+        />
       </Icons>
     </DivInfo>
   );

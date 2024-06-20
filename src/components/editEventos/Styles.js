@@ -2,8 +2,9 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   background-color: white;
+  justify-content: center;
+  align-items: center;
   color: black;
-  width: 500px;
   margin-bottom: 50px;
   border-radius: 20px;
   padding: 30px 30px 30px 30px;
@@ -13,6 +14,9 @@ export const Container = styled.div`
   }
 `;
 export const ImgEvents = styled.img`
+  object-fit: cover;
+  width: 500px;
+  max-height: 300px;
   @media (max-width: 578px) {
     width: 80vw;
   }

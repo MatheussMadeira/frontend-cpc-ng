@@ -1,12 +1,34 @@
-import { Form } from "./Styles";
+import React from "react";
 import { Modal } from "antd";
+import { useQueryClient } from "@tanstack/react-query";
 import { DivModal, ModalText, ModalTitle } from "./Styles";
 import { ButtonDefault } from "../../Common/Button";
+import { useDeleteEvents } from "../../../hooks/Events";
 
-const DeleteModal = ({ isModalOpen, setIsModalOpen }) => {
-  const handleOk = () => {
-    setIsModalOpen(false);
+const DeleteModal = ({ isModalOpen, setIsModalOpen, evento }) => {
+  const queryClient = useQueryClient();
+  const { mutate: deleteEvent } = useDeleteEvents({
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["eventos"],
+      });
+      setIsModalOpen(false); // Fechar o modal após a deleção bem-sucedida
+    },
+    onError: (err) => {
+      console.error("Erro ao deletar evento:", err);
+      // Tratar o erro, se necessário
+    },
+  });
+
+  const handleDelete = async () => {
+    try {
+      await deleteEvent(evento._id); // Deletar o evento com o ID especificado
+    } catch (error) {
+      console.error("Erro ao deletar evento:", error);
+      // Tratar o erro, se necessário
+    }
   };
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -14,27 +36,25 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen }) => {
   return (
     <Modal
       open={isModalOpen}
-      onOk={handleOk}
+      onOk={handleDelete}
       onCancel={handleCancel}
+      confirmLoading={false} // Manter como false para desativar o loading do botão
       footer={null}
     >
-      <Form>
-        <DivModal>
-          <ModalTitle>Excluir eventos</ModalTitle>
-          <ModalText>
-            Tem certeza que você deseja excluir esse evento?
-          </ModalText>
-          <ButtonDefault
-            marginRight="0px"
-            borderColor="1px solid orange"
-            marginTop="20px"
-            colorFont="orange"
-            color="orange"
-          >
-            EXCLUIR
-          </ButtonDefault>
-        </DivModal>
-      </Form>
+      <DivModal>
+        <ModalTitle>Excluir evento</ModalTitle>
+        <ModalText>Tem certeza que deseja excluir este evento?</ModalText>
+        <ButtonDefault
+          marginRight="0px"
+          borderColor="1px solid orange"
+          marginTop="20px"
+          colorFont="orange"
+          color="orange"
+          onClick={handleDelete}
+        >
+          EXCLUIR
+        </ButtonDefault>
+      </DivModal>
     </Modal>
   );
 };

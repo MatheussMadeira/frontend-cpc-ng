@@ -18,9 +18,9 @@ function Evento({ evento }) {
 
   return (
     <DivInfo>
-      <ImgEvents src={evento.url_da_imagem} alt={evento.titulo} />
-      <TitleEvents>{evento.titulo}</TitleEvents>
-      <DescEvents>{evento.descricao}</DescEvents>
+      <ImgEvents src={evento?.img_URL} />
+      <TitleEvents>{evento?.name}</TitleEvents>
+      <DescEvents>{evento?.description}</DescEvents>
       <Icons>
         <EditModal
           isEditModalOpen={isEditModalOpen}
@@ -30,6 +30,7 @@ function Evento({ evento }) {
         <DeleteModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          evento={evento}
         />
         <FaRegTrashAlt
           style={{ cursor: "pointer" }}

@@ -15,7 +15,4 @@ export const validadorInput = z.object({
     .string({ required_error: "Insira uma descrição" })
     .min(1, { message: "Preencha o campo descrição" })
     .max(255, { message: "Limite máximo de caracteres alcançado!" }),
-  type: z.object({
-    project: z.string().nonempty("Selecione um projeto."),
-  }),
 });

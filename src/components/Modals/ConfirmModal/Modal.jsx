@@ -42,8 +42,8 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen, evento }) => {
       footer={null}
     >
       <DivModal>
-        <ModalTitle>Excluir evento</ModalTitle>
-        <ModalText>Tem certeza que deseja excluir este evento?</ModalText>
+        <ModalTitle>Confirmar evento</ModalTitle>
+        <ModalText>Tem certeza que deseja criar este evento?</ModalText>
         <ButtonDefault
           marginRight="0px"
           borderColor="1px solid orange"
@@ -52,7 +52,7 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen, evento }) => {
           color="orange"
           onClick={handleDelete}
         >
-          EXCLUIR
+          CONFIRMAR
         </ButtonDefault>
       </DivModal>
     </Modal>

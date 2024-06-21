@@ -12,7 +12,7 @@ import {
   StyledUrl,
   DivSelect,
   SelectDe,
-  OptionsS,
+  OptionsS,// Componente para a mensagem de erro
 } from "./Styles";
 import { InputD } from "../../components/Common/Input";
 import { ButtonDefault } from "../../components/Common/Button";
@@ -23,6 +23,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { validadorInput } from "./Utils";
 import { Alert } from "../../components/Common/Alert";
+
 function Home() {
   const queryClient = useQueryClient();
   const { mutate: postEvents } = usePostEvents({
@@ -36,17 +37,6 @@ function Home() {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Oi");
-    const eventData = {
-      name: data.name,
-      img_URL: data.img_URL,
-      description: data.description,
-      type: selectedProjeto,
-    };
-    postEvents(eventData);
-  };
-
   const {
     handleSubmit,
     register,
@@ -54,9 +44,27 @@ function Home() {
   } = useForm({ resolver: zodResolver(validadorInput) });
 
   const [selectedProjeto, setSelectedProjeto] = useState("");
+  const [showSelectError, setShowSelectError] = useState(false); // Estado para controlar a exibição da mensagem de erro
 
   const handleSelectChange = (event) => {
     setSelectedProjeto(event.target.value);
+    setShowSelectError(false); // Resetar o estado ao selecionar uma opção
+  };
+
+  const onSubmit = (data) => {
+    if (!selectedProjeto) {
+      setShowSelectError(true); // Mostrar mensagem de erro se não houver seleção
+      return;
+    }
+
+    const eventData = {
+      name: data.name,
+      img_URL: data.img_URL,
+      description: data.description,
+      type: selectedProjeto,
+    };
+
+    postEvents(eventData);
   };
 
   return (
@@ -112,6 +120,9 @@ function Home() {
                 <OptionsS value="Workshops">Workshops</OptionsS>
                 <OptionsS value="Exposições">Exposições</OptionsS>
               </SelectDe>
+              {showSelectError && (
+                <Alert>Por favor, selecione um projeto.</Alert>
+              )}
             </DivSelect>
           </DivInputs>
           <ButtonDefault
@@ -130,4 +141,5 @@ function Home() {
     </Container>
   );
 }
+
 export default Home;

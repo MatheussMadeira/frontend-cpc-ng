@@ -43,8 +43,8 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
     defaultValues: {
       name: evento.name,
       img_URL: evento.img_URL,
-      description: evento.description,
-    },
+     description: evento.description,
+     },
   });
   const handleOk = () => {
     setIsEditModalOpen(false);
@@ -57,7 +57,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
       ...evento,
       ...data,
     };
-    editEvent({id: evento._id, body: updateEvent });
+    editEvent({ id: evento._id, body: updateEvent });
   };
 
   return (
@@ -83,6 +83,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
                 mediaWidthValue="60vw"
                 color="black"
                 error={errors}
+                placeholder={evento.name}
                 {...register("name")}
               />
               {!!errors?.name?.message && (
@@ -99,6 +100,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
                 mediaWidthValue="60vw"
                 color="black"
                 error={errors}
+                placeholder={evento.img_URL}
                 {...register("img_URL")}
               />
               {!!errors?.img_URL?.message && (
@@ -115,6 +117,7 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
                 mediaWidthValue="60vw"
                 color="black"
                 error={errors}
+                placeholder={evento.description}
                 {...register("description")}
               />
               {!!errors?.description?.message && (

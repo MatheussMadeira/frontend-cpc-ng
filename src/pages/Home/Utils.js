@@ -10,9 +10,7 @@ export const validadorInput = z.object({
     .min(1, { message: "Preencha o campo imagem" })
     .max(255, { message: "Limite máximo de caracteres alcançado!" })
     .url({ message: "Insira um URL válido" }),
-
   description: z
     .string({ required_error: "Insira uma descrição" })
     .min(1, { message: "Preencha o campo descrição" })
-    .max(255, { message: "Limite máximo de caracteres alcançado!" }),
 });

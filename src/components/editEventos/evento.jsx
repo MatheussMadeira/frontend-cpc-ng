@@ -25,6 +25,7 @@ function Evento({ evento }) {
         <EditModal
           isEditModalOpen={isEditModalOpen}
           setIsEditModalOpen={setIsEditModalOpen}
+          evento={evento}
         />
         <FaEdit style={{ cursor: "pointer" }} onClick={() => showEditModal()} />
         <DeleteModal

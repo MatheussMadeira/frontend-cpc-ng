@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { colors } from "../../styles/stylesVariables";
-export const HeaderPrincipal = styled.header`
+export const MainHeader = styled.header`
   background-color: ${colors.background.primary};
   width: auto;
   height: 83px;
@@ -8,7 +8,7 @@ export const HeaderPrincipal = styled.header`
   align-items: center;
   justify-content: space-between;
 `;
-export const LogoSite = styled.img`
+export const Logo = styled.img`
   height: 80%;
   padding-left: 20px;
 `;

@@ -1,7 +1,4 @@
-import React from "react";
 import { Modal } from "antd";
-import { FaPencilAlt, FaImage } from "react-icons/fa";
-import { AiOutlineCopy } from "react-icons/ai";
 import {
   DivModal,
   TitleInput,
@@ -126,9 +123,9 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
               <DivSelect>
                 <TitleInput>Categorias:</TitleInput>
                 <SelectDe placeholder="Opções de categoria:">
-                  <OptionsS value="red">Vermelho</OptionsS>
-                  <OptionsS value="blue">Azul</OptionsS>
-                  <OptionsS value="green">Verde</OptionsS>
+                  <OptionsS value="red">Conferências</OptionsS>
+                  <OptionsS value="blue">Workshops</OptionsS>
+                  <OptionsS value="green">Exposições</OptionsS>
                 </SelectDe>
               </DivSelect>
             </DivInputs>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
-import DeleteModal from "../Modals/DeleteModal/Modal";
-import EditModal from "../Modals/EditModal/Modal";
+import DeleteModal from "../Modals/DeleteModal/DeleteModal";
+import EditModal from "../Modals/EditModal/EditModal";
 import { ImgEvents, TitleEvents, DescEvents, DivInfo, Icons } from "./Styles";
 
 function Evento({ evento }) {

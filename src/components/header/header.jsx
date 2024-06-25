@@ -1,16 +1,16 @@
 import logo from "../../assets/imgHeader.jpg";
-import { HeaderPrincipal, LogoSite, DivButtons } from "./Styles";
+import { MainHeader, Logo, DivButtons } from "./Styles";
 import { ButtonDefault } from "../Common/Button";
 
 function Header() {
   return (
-    <HeaderPrincipal>
-      <LogoSite src={logo} alt="logo"></LogoSite>
+    <MainHeader>
+      <Logo src={logo} alt="logo"></Logo>
       <DivButtons>
         <ButtonDefault mediaMarginValue="20vw">Home</ButtonDefault>
         <ButtonDefault mediaMarginValue="20vw">Eventos</ButtonDefault>
       </DivButtons>
-    </HeaderPrincipal>
+    </MainHeader>
   );
 }
 

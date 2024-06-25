@@ -9,7 +9,7 @@ const useAuthStore = create(
       clearAuth: () => set({ event: null }),
     }),
     {
-      name: "auth", // nome da chave de armazenamento persistente (por exemplo, localStorage)
+      name: "auth",
     }
   )
 );

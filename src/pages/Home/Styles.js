@@ -73,7 +73,7 @@ export const DivSelect = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  float: right;
+  justify-content: center;
 `;
 
 export const SelectDe = styled.select`
@@ -94,4 +94,3 @@ export const OptionsS = styled.option`
     background-color: white;
   }
 `;
-

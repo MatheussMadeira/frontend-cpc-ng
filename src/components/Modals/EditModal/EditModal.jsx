@@ -20,6 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { validador } from "./Utils";
 import { useUpdateEvents } from "../../../hooks/Events";
 import { Alert } from "../../Common/Alert";
+import { useEffect } from "react";
 
 const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
   const queryClient = useQueryClient();
@@ -34,14 +35,15 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(validador),
     defaultValues: {
       name: evento.name,
       img_URL: evento.img_URL,
-     description: evento.description,
-     },
+      description: evento.description,
+    },
   });
   const handleOk = () => {
     setIsEditModalOpen(false);
@@ -49,6 +51,15 @@ const EditModal = ({ isEditModalOpen, setIsEditModalOpen, evento }) => {
   const handleCancel = () => {
     setIsEditModalOpen(false);
   };
+  useEffect(() => {
+    if (isEditModalOpen) {
+      reset({
+        name: evento.name,
+        img_URL: evento.img_URL,
+        description: evento.description,
+      });
+    }
+  }, [isEditModalOpen, evento, reset]);
   const onSubmit = (data) => {
     const updateEvent = {
       ...evento,

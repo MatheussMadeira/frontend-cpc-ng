@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Container,
   MainTitle,
@@ -12,7 +12,7 @@ import {
   StyledUrl,
   DivSelect,
   SelectDe,
-  OptionsS, // Componente para a mensagem de erro
+  OptionsS,
 } from "./Styles";
 import { InputD } from "../../components/Common/Input";
 import { ButtonDefault } from "../../components/Common/Button";
@@ -40,23 +40,23 @@ function Home() {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm({ resolver: zodResolver(validadorInput) });
 
   const [selectedProjeto, setSelectedProjeto] = useState("");
-  const [showSelectError, setShowSelectError] = useState(false); // Estado para controlar a exibição da mensagem de erro
+  const [showSelectError, setShowSelectError] = useState(false);
 
   const handleSelectChange = (event) => {
     setSelectedProjeto(event.target.value);
-    setShowSelectError(false); // Resetar o estado ao selecionar uma opção
+    setShowSelectError(false);
   };
 
   const onSubmit = (data) => {
     if (!selectedProjeto) {
-      setShowSelectError(true); // Mostrar mensagem de erro se não houver seleção
+      setShowSelectError(true);
       return;
     }
-
     const eventData = {
       name: data.name,
       img_URL: data.img_URL,
@@ -64,7 +64,12 @@ function Home() {
       type: selectedProjeto,
     };
 
-    postEvents(eventData);
+    postEvents(eventData, {
+      onSuccess: () => {
+        reset({ name: "", img_URL: "", description: "" });
+        setSelectedProjeto("");
+      },
+    });
   };
 
   return (
@@ -81,6 +86,7 @@ function Home() {
               name="name"
               error={errors}
               borda={!!errors?.name?.message}
+              autoComplete="off"
               {...register("name")}
             />
             {!!errors?.name?.message && <Alert>{errors?.name?.message}</Alert>}
@@ -92,6 +98,7 @@ function Home() {
               name="img_URL"
               error={errors}
               borda={!!errors?.img_URL?.message}
+              autoComplete="off"
               {...register("img_URL")}
             />
             {!!errors?.img_URL?.message && (
@@ -105,6 +112,7 @@ function Home() {
               name="description"
               error={errors}
               borda={!!errors?.description?.message}
+              autoComplete="off"
               {...register("description")}
             />
             {!!errors?.description?.message && (
@@ -121,7 +129,9 @@ function Home() {
                 <OptionsS value="Exposições">Exposições</OptionsS>
               </SelectDe>
               {showSelectError && (
-                <Alert>Por favor, selecione um projeto.</Alert>
+                <Alert textAlign="center">
+                  Por favor, selecione um projeto.
+                </Alert>
               )}
             </DivSelect>
           </DivInputs>

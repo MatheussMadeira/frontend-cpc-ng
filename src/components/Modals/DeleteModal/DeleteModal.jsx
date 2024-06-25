@@ -12,20 +12,18 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen, evento }) => {
       queryClient.invalidateQueries({
         queryKey: ["eventos"],
       });
-      setIsModalOpen(false); // Fechar o modal após a deleção bem-sucedida
+      setIsModalOpen(false); 
     },
     onError: (err) => {
       console.error("Erro ao deletar evento:", err);
-      // Tratar o erro, se necessário
     },
   });
 
   const handleDelete = async () => {
     try {
-      await deleteEvent(evento._id); // Deletar o evento com o ID especificado
+      await deleteEvent(evento._id); 
     } catch (error) {
       console.error("Erro ao deletar evento:", error);
-      // Tratar o erro, se necessário
     }
   };
 
@@ -38,7 +36,7 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen, evento }) => {
       open={isModalOpen}
       onOk={handleDelete}
       onCancel={handleCancel}
-      confirmLoading={false} // Manter como false para desativar o loading do botão
+      confirmLoading={false} 
       footer={null}
     >
       <DivModal>
